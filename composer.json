@@ -1,12 +1,11 @@
 {
     "name": "aveadev/magento-2-austrian-language-pack",
-    "description": "Austrian German (de_AT) language pack for Magento 2. Contains no translation strings of its own — inherits entirely from aveadev/magento-2-german-language-pack (de_DE) via the language.xml <use> mechanism, so it stays in sync automatically as the German pack is updated.",
+    "description": "Austrian German (de_AT) language pack for Magento 2. Standalone — ships its own complete de_AT.csv translation set and does not depend on aveadev/magento-2-german-language-pack.",
     "type": "magento2-language",
     "license": "proprietary",
     "version": "1.0.0",
     "require": {
-        "php": "~8.4.0||~8.3.0",
-        "aveadev/magento-2-german-language-pack": "*"
+        "php": "~8.4.0||~8.3.0"
     },
     "autoload": {
         "files": [

@@ -1,16 +1,8 @@
 <?xml version="1.0"?>
-<!--
-  IMPORTANT: check your existing "aveadev/magento-2-german-language-pack"
-  package's own language.xml for the <vendor> and <package> values it
-  declares itself under, and make sure the <use> line below matches them
-  EXACTLY. If they differ from "Aveadev" / "de_de", update the line below
-  before deploying, or Magento will fail to resolve the inheritance.
--->
 <language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="urn:magento:framework:App/Language/etc/language.xsd">
     <code>de_AT</code>
     <vendor>Aveadev</vendor>
     <package>de_at</package>
     <sort_order>0</sort_order>
-    <use vendor="Aveadev" package="de_de"/>
 </language>

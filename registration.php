@@ -1,8 +1,8 @@
 <?php
 /**
  * Aveadev Austrian German (de_AT) language pack
- * Inherits all translation strings from aveadev/magento-2-german-language-pack (de_DE)
- * via the <use> reference in language.xml — no duplicated CSV content.
+ * Standalone — ships its own complete i18n/de_AT.csv, no dependency
+ * on the de_DE package or the language.xml <use> mechanism.
  */
 
 use Magento\Framework\Component\ComponentRegistrar;

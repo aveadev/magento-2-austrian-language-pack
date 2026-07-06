@@ -1,59 +1,47 @@
 # aveadev/magento-2-austrian-language-pack
 
-Austrian German (`de_AT`) language pack for Magento 2.
+Austrian German (`de_AT`) language pack for Magento 2 — **standalone**.
 
-This package contains **no translation CSV files of its own**. It exists purely to
-declare `de_AT` as a distinct, installable locale that inherits 100% of its strings
-from [`aveadev/magento-2-german-language-pack`](.) (`de_DE`) via the native
-`<use vendor="..." package="..."/>` mechanism in `language.xml`. This mirrors how
-Magento's own core `magento/language-de_at` inherits from `magento/language-de_de`.
+This package ships its own complete `i18n/de_AT.csv` translation file. It does
+not depend on any other language package and does not use the `<use vendor=.../>`
+inheritance mechanism in `language.xml`. Installing or updating a German (`de_DE`)
+pack has no effect on it, and it has no effect on `de_DE`.
 
 ## Why this exists
 
-Magento's `Locale` field (Stores → Configuration → General → Locale Options) drives
-both translation selection *and* number/date/currency formatting, and separately,
-`hreflang` region codes for international SEO are derived from the store's locale.
-Setting Austria's store view to the same `de_DE` locale as Germany produces a
-hreflang collision (`<link hreflang="de-de">` output twice, once per store, with
-different URLs) — Google will treat the whole hreflang cluster as invalid,
-not just the AT/DE pair. Giving Austria its own `de_AT` locale fixes that without
-requiring a second, hand-maintained set of translations.
+Magento's Locale setting (Stores → Configuration → General → Locale Options)
+drives both translation selection and number/date/currency formatting, and
+`hreflang` region codes for SEO are derived from it too. Setting the Austrian
+store view to the same `de_DE` locale as Germany produces a duplicate `hreflang`
+value across two different URLs — search engines treat that as an invalid
+signal for the whole cluster, not just the AT/DE pair (`de-AT` and `de-DE` are
+distinct IETF BCP 47 language tags for a reason: region subtag `AT` vs `DE`
+tells a browser or crawler these are different locales, not different copies
+of the same one). Giving Austria its own `de_AT` locale fixes that.
 
-## Before you deploy — one thing to check
+## What's in the box
 
-Open the `language.xml` in your existing `aveadev/magento-2-german-language-pack`
-package and confirm the `<vendor>` and `<package>` values it declares itself as.
-The `<use>` line in this package's `language.xml` **must match those exactly**:
-
-```xml
-<use vendor="Aveadev" package="de_de"/>
+```
+magento-2-austrian-language-pack/
+├── i18n/
+│   └── de_AT.csv       ← full translation set (not just overrides)
+├── language.xml
+├── registration.php
+└── composer.json
 ```
 
-If your German pack declares different values, edit that line before deploying,
-or Magento will fail to resolve the inheritance and static content deploy will
-error out looking for the parent package.
+`de_AT.csv` needs to contain every string the storefront and admin will
+render for that locale — there's no fallback to `de_DE` anymore, so a
+missing key here means untranslated English (or the raw key) on the
+storefront, not a silent inheritance.
 
 ## Installation
-
-If `aveadev/magento-2-german-language-pack` is installed via a private Packagist/
-Satis repository, add this package to the same repository, or add a `path`/`vcs`
-repository entry for it in your project's root `composer.json`:
-
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "git@your-git-host:aveadev/magento-2-austrian-language-pack.git"
-    }
-]
-```
-
-Then, from your Magento root:
 
 ```bash
 composer require aveadev/magento-2-austrian-language-pack:dev-main
 sudo -u www-data php bin/magento setup:upgrade
 sudo -u www-data php bin/magento setup:static-content:deploy de_AT
+sudo -u www-data php bin/magento cache:flush
 ```
 
 ## Enabling it on the Austrian store view
@@ -61,29 +49,34 @@ sudo -u www-data php bin/magento setup:static-content:deploy de_AT
 1. **Stores → Configuration → General → Locale Options**
 2. Switch scope (top-left) to your Austrian store view
 3. Set **Locale** to `Deutsch (Österreich)` / `de_AT`
-4. Save, then flush cache: `sudo -u www-data php bin/magento cache:flush`
+4. Save, then flush cache
 
-## Verifying the fix
+## Verifying it
 
-View-source a product page on `omegamix.at` (bypass Varnish via direct-to-Apache
-on port 8080 if you want to rule out stale cache) and confirm the `<head>` now
-shows:
+View-source a product page on `omegamix.at` and confirm:
 
 ```html
 <link rel="alternate" hreflang="de-at" href="https://www.omegamix.at/..." />
 ```
 
-...while `omegamix.de` still correctly shows `hreflang="de-de"`. Also spot-check
-that Austrian-facing text (checkout, shipping messages, etc.) still renders in
-German exactly as before — this package should be visually invisible; the only
-observable change should be the hreflang tag and any locale-driven number/date
-formatting (e.g. Magento's own `de_AT` formatting conventions differ slightly
-from `de_DE` for things like month names).
+...while `omegamix.de` still shows `hreflang="de-de"`. Also spot-check that
+storefront text (checkout, shipping messages, product pages) renders
+correctly in Austrian German — since there's no fallback, any gap in
+`de_AT.csv` will show up as missing translation, not a silently-inherited
+German string.
 
-## Future Austria-specific wording
+## Maintaining `de_AT.csv`
 
-If you ever want a small Austrian-specific override (e.g. "Jänner" instead of
-"Januar", or "Sackerl" instead of "Tüte"), add only that string to a CSV file
-under `i18n/de_AT/` in this package — a package-local CSV always takes priority
-over an inherited one for the same key, so you only maintain the handful of
-lines that actually differ, not a full duplicate translation set.
+Because this pack no longer inherits, updates to a separate `de_DE` pack
+(spelling fixes, new Magento core strings after a version upgrade, new
+module strings) will **not** propagate here automatically. After any
+Magento version upgrade or new module install, diff the new core/module
+`i18n/de_DE.csv` files against this one and merge in new keys — otherwise
+new strings introduced by an upgrade will render untranslated on the
+Austrian storefront until you do.
+
+**Tip:** keep `de_AT.csv` as a single flat file rather than splitting it
+by module. Magento's language loader merges everything under `i18n/` for
+the locale regardless of how many files it's split across, so there's no
+performance benefit to splitting — just more files to search when you're
+looking for one string.
