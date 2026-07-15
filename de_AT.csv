@@ -15241,3 +15241,4 @@ ZIP/Postal Code,Postleitzahl,module,Magento_Shipping
 Zip/Postal Code is Optional for,Postleitzahl ist optional für,module,Magento_Directory
 ZIP/Postal Code:,Postleitzahl:,module,Magento_Company
 "Our hours are <span class=""no-link"">%store_hours</span>.","Unsere Öffnungszeiten: <span class=""no-link"">%store_hours</span>.",module,Magento_Sales
+Shipping Info,Versandinformationen,module,Magento_Sales
