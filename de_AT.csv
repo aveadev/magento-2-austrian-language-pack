@@ -15242,3 +15242,11 @@ Zip/Postal Code is Optional for,Postleitzahl ist optional für,module,Magento_Di
 ZIP/Postal Code:,Postleitzahl:,module,Magento_Company
 "Our hours are <span class=""no-link"">%store_hours</span>.","Unsere Öffnungszeiten: <span class=""no-link"">%store_hours</span>.",module,Magento_Sales
 Shipping Info,Versandinformationen,module,Magento_Sales
+Your Cart,Ihr Warenkorb,module,Magento_Checkout
+Customer Login,Kundenanmeldung,module,Magento_Customer
+Create New Customer Account,Neues Kundenkonto erstellen,module,Magento_Customer
+Legal guarantee notice,Gesetzlicher Gewährleistungshinweis,module,Swissup_CheckoutConsumerRights
+Search,Suche,module,Magento_Ui
+My Account,Mein Konto,module,Magento_Customer
+"Hello, sign in","Hallo, anmelden",module,Magento_Customer
+Your account,Ihr Konto,module,Magento_Customer
