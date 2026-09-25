@@ -399,7 +399,7 @@ müssen Sie den Preis mit dem Händler neu aushandeln.",module,Magento_Negotiabl
 %1 with %2 discount each,%1 mit jeweils %2 Rabatt,module,Magento_Sales
 %1 x %2,%1 x %2,module,Magento_Bundle
 "%1: Instance of %2 is expected, got %3 instead","%1: Instanz von %2 wird erwartet, stattdessen %3 erhalten",module,Magento_Config
-%1: Line %2,%1: Line %2,module,Magento_Checkout
+%1: Line %2,%1: Zeile %2,module,Magento_Checkout
 %1's account has been set to Inactive.,%1's account has been set to Inactive.,module,Magento_Company
 %1's Wish List,%1's Wunschliste,module,Magento_MultipleWishlist
 %1's Wish List,%1's Wunschliste,module,Magento_Wishlist
@@ -2601,8 +2601,8 @@ Clear Price,Preis löschen,module,Magento_Catalog
 Clear Shopping Cart,Warenkorb leeren,module,Magento_Checkout
 Clear Shopping Cart,Warenkorb leeren,module,Magento_Sales
 "Click ""Save"" to apply the rates we found.","Klicken Sie auf ""Speichern"", um die gefundenen Kurse zu speichern.",module,Magento_CurrencySymbol
-"Click <a href=""%1"">here</a> to continue shopping.","Klicken Sie <a href=""%1"">hier</a> um weiter einzukaufen.",module,Magento_Checkout
-"Click <a href=""%1"">here</a> to continue shopping.","Klicken Sie <a href=""%1"">hier</a> um weiter einzukaufen.",module,Magento_Wishlist
+"Click <a href=""%1"">here</a> to continue shopping.","Klicken Sie <a href=""%1"">hier</a>, um weiter einzukaufen.",module,Magento_Checkout
+"Click <a href=""%1"">here</a> to continue shopping.","Klicken Sie <a href=""%1"">hier</a>, um weiter einzukaufen.",module,Magento_Wishlist
 "Click <a href=""%1"">here</a> to see the review.","Klicken Sie <a href=""%1"">hier</a>, um die Bewertung zu sehen.",module,Magento_Review
 Click Details for more required fields.,Auf Details klicken für mehr erforderliche Felder,module,Magento_Rma
 Click for price,Klicken für Preis,module,Magento_Catalog
@@ -10753,8 +10753,8 @@ Ship From,Versand von,module,Magento_Rma
 Ship Here,Hierhin verschicken,module,Magento_Checkout
 Ship Here,Hierhin verschicken,module,Magento_GiftRegistry
 Ship Here,Ship Here,module,Magento_NegotiableQuote
-Ship To,Verschicken an,module,Magento_Paypal
-Ship To,Verschicken an,module,Magento_Sales
+Ship To,Liefern an,module,Magento_Paypal
+Ship To,Liefern an,module,Magento_Sales
 Ship to Applicable Countries,Versand in erlaubte Länder,module,Magento_Dhl
 Ship to Applicable Countries,Versand in erlaubte Länder,module,Magento_Fedex
 Ship to Applicable Countries,Versand in erlaubte Länder,module,Magento_OfflineShipping
@@ -10769,7 +10769,7 @@ Ship to Specific Countries,Versand zu bestimmten Ländern,module,Magento_Offline
 Ship to Specific Countries,Versand zu bestimmten Ländern,module,Magento_Ups
 Ship to Specific Countries,Versand zu bestimmten Ländern,module,Magento_Usps
 Ship to the recipient's address.,An Adresse des Empfängers senden,module,Magento_GiftRegistry
-Ship To:,Verschicken an:,module,Magento_Checkout
+Ship To:,Liefern an:,module,Magento_Checkout
 Ship to:,Versand an:,module,Magento_Multishipping
 Ship to:,Versand an:,module,Magento_Sales
 Ship-to Name,Versandname,module,Magento_Customer
@@ -11267,7 +11267,7 @@ Something went wrong. Please try to place the order again.,Something went wrong.
 "Sorry, but we can't find the new parent category you selected.","Die neue übergeordnete Kategorie, welche Sie ausgewählt haben, wurde nicht gefunden.",module,Magento_Catalog
 "Sorry, but we cannot read from or write to backup file ""%1"".","Entschuldigung, aber die Sicherungsdatei ""%1"" kann weder gelesen noch beschrieben werden.",module,Magento_Backup
 "Sorry, guest checkout is not available.",Abmelden für Gäste ist nicht verfügbar.,module,Magento_Checkout
-"Sorry, no quotes are available for this order at this time","Sorry, no quotes are available for this order at this time",module,Magento_Checkout
+"Sorry, no quotes are available for this order at this time","Für diese Bestellung ist derzeit keine Versandart verfügbar.",module,Magento_Checkout
 "Sorry, no quotes are available for this order at this time","Sorry, no quotes are available for this order at this time",module,Magento_NegotiableQuote
 "Sorry, no quotes are available for this order right now.",Zur Zeit sind leider keine Angebote für diese Bestellung verfügbar.,module,Magento_Multishipping
 "Sorry, no quotes are available for this order right now.",Zur Zeit sind leider keine Angebote für diese Bestellung verfügbar.,module,Magento_Paypal
@@ -13224,7 +13224,7 @@ Too many concurrent attempts to void this transaction. Try again later.,"Zu viel
 "Too many coupon code requests, please try again later.","Too many coupon code requests, please try again later.",module,Magento_SalesRule
 Tools,Werkzeuge,module,Magento_Backend
 Tools,Werkzeuge,module,Magento_Backup
-Tooltip,Tooltip,module,Magento_Ui
+Tooltip,Hinweis,module,Magento_Ui
 Top,Nach oben,module,Magento_Support
 Top,Nach oben,module,Magento_VisualMerchandiser
 Top Debug Messages,Top Debug Nachrichten,module,Magento_Support
@@ -14583,7 +14583,7 @@ Wish List Sharing,Wunschliste teilen,module,Magento_Wishlist
 Wish List vs. Regular Order,Wunschliste gegen regelmäßige Bestellung,module,Magento_Reports
 Wish Lists,Wunschlisten,module,Magento_MultipleWishlist
 Wish Lists,Wunschlisten,module,Magento_Reports
-Wishlist,Wunschzettel,module,Magento_MultipleWishlist
+Wishlist,Wunschliste,module,Magento_MultipleWishlist
 "With customer tax applied “Before Discount”, the final discount calculation may not match customers’ expectations. ","Wird die Kundensteuerklasse ""Vor Rabatt"" angewendet, kann die tatsächliche Rabattberechnung anders ausfallen, als von den Kunden erwartet. ",module,Magento_Tax
 With Selected,Mit Auswahl,module,Magento_RequisitionList
 Without starting and trailing slashes.,Ohne Schrägstriche am Anfang oder am Ende.,module,Magento_Solr
@@ -15250,3 +15250,4 @@ Search,Suche,module,Magento_Ui
 My Account,Mein Konto,module,Magento_Customer
 "Hello, sign in","Hallo, anmelden",module,Magento_Customer
 Your account,Ihr Konto,module,Magento_Customer
+Selected shipping method is not available. Please select another shipping method for this order.,Die gewählte Versandart ist nicht verfügbar. Bitte wählen Sie eine andere Versandart für diese Bestellung.,module,Magento_Checkout
