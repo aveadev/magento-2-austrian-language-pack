@@ -15251,3 +15251,4 @@ My Account,Mein Konto,module,Magento_Customer
 "Hello, sign in","Hallo, anmelden",module,Magento_Customer
 Your account,Ihr Konto,module,Magento_Customer
 Selected shipping method is not available. Please select another shipping method for this order.,Die gewählte Versandart ist nicht verfügbar. Bitte wählen Sie eine andere Versandart für diese Bestellung.,module,Magento_Checkout
+"The store will not work correctly when cookies are disabled.","Der Shop funktioniert nicht richtig, wenn Cookies deaktiviert sind.",module,Magento_Theme
